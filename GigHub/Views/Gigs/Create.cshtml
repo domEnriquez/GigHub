@@ -1,9 +1,9 @@
 ﻿@model GigHub.ViewModels.GigFormViewModel
 
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "Create";
+    ViewBag.Title = "Create";
 }
 
 <h2>Add a Gig</h2>
@@ -31,4 +31,8 @@
         @Html.ValidationMessageFor(m => m.Genre)
     </div>
     <button type="submit" class="btn btn-primary">Save</button>
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
