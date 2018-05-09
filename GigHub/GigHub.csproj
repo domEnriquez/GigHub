@@ -216,6 +216,10 @@
     <Compile Include="Migrations\201805041335528_AddedForeignKeyPropertiestoGigsTable.Designer.cs">
       <DependentUpon>201805041335528_AddedForeignKeyPropertiestoGigsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805091333043_AddNameToApplicationUser.cs" />
+    <Compile Include="Migrations\201805091333043_AddNameToApplicationUser.Designer.cs">
+      <DependentUpon>201805091333043_AddNameToApplicationUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -223,6 +227,7 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
@@ -319,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805041335528_AddedForeignKeyPropertiestoGigsTable.resx">
       <DependentUpon>201805041335528_AddedForeignKeyPropertiestoGigsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805091333043_AddNameToApplicationUser.resx">
+      <DependentUpon>201805091333043_AddNameToApplicationUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
