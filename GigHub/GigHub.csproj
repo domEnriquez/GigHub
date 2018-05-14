@@ -201,6 +201,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
+    <Compile Include="Controllers\FollowController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -236,11 +237,17 @@
     <Compile Include="Migrations\201805120722215_AddAttendances.Designer.cs">
       <DependentUpon>201805120722215_AddAttendances.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805131503468_AddFollow.cs" />
+    <Compile Include="Migrations\201805131503468_AddFollow.Designer.cs">
+      <DependentUpon>201805131503468_AddFollow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\FollowDto.cs" />
+    <Compile Include="Models\Follow.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -249,6 +256,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
     <Compile Include="ViewModels\GigFormViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\ValidTime.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805120722215_AddAttendances.resx">
       <DependentUpon>201805120722215_AddAttendances.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805131503468_AddFollow.resx">
+      <DependentUpon>201805131503468_AddFollow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
