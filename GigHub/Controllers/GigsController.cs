@@ -1,6 +1,7 @@
 ﻿using GigHub.Models;
 using GigHub.ViewModels;
 using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -22,7 +23,10 @@ namespace GigHub.Controllers
         {
             string userId = User.Identity.GetUserId();
             List<Gig> gigs = context.Gigs
-                .Where(g => g.ArtistId == userId)
+                .Where(g => 
+                    g.ArtistId == userId && 
+                    g.DateTime > DateTime.Now && 
+                    !g.IsCancelled)
                 .Include(g => g.Genre)
                 .ToList();
 
