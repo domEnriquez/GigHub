@@ -1,5 +1,7 @@
 ﻿using GigHub.Models;
 using Microsoft.AspNet.Identity;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
@@ -24,6 +26,23 @@ namespace GigHub.Controllers.Api
 
             if (gig.IsCancelled)
                 return NotFound();
+
+            var notification = new Notification
+            {
+                DateTime = DateTime.Now,
+                Gig = gig,
+                Type = NotificationType.GigCancelled
+            };
+
+            List<ApplicationUser> attendees = context.Attendances
+                .Where(a => a.GigId == gig.Id)
+                .Select(a => a.Attendee)
+                .ToList();
+
+            foreach(ApplicationUser attendee in attendees)
+            {
+                attendee.Notify(notification);
+            }
 
             context.SaveChanges();
 
