@@ -34,15 +34,9 @@ namespace GigHub.Models
             return userIdentity;
         }
 
-        internal void Notify(Notification notification)
+        public void Notify(Notification notification)
         {
-            var userNotification = new UserNotification
-            {
-                User = this,
-                Notification = notification
-            };
-
-            UserNotifications.Add(userNotification);
+            UserNotifications.Add(new UserNotification(this, notification));
         }
     }
 }
