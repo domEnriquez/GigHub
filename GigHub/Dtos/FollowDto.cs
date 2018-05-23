@@ -1,4 +1,4 @@
-﻿namespace GigHub.Models
+﻿namespace GigHub.Dto
 {
     public class FollowDto
     {
