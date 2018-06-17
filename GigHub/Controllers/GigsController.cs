@@ -151,7 +151,6 @@ namespace GigHub.Controllers
         [HttpGet]
         public ActionResult Details(int id)
         {
-            bool loggedIn = User.Identity.IsAuthenticated;
             Gig gig = context.Gigs
                 .Include(g => g.Artist)
                 .Include(g => g.Genre)
