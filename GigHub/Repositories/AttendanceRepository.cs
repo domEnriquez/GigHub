@@ -1,31 +1,11 @@
-﻿using GigHub.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using GigHub.Models;
 
 namespace GigHub.Repositories
 {
-    public class AttendanceRepository
+    public interface AttendanceRepository
     {
-        private readonly ApplicationDbContext context;
-
-        public AttendanceRepository(ApplicationDbContext context)
-        {
-            this.context = context;
-        }
-
-        public Attendance GetAttendance(int gigId, string userId)
-        {
-            return context
-                .Attendances
-                .SingleOrDefault(a => a.GigId == gigId && a.AttendeeId == userId);
-        }
-
-        public IEnumerable<Attendance> GetFutureAttendances(string userId)
-        {
-            return context.Attendances
-                            .Where(a => a.AttendeeId == userId && a.Gig.DateTime > DateTime.Now)
-                            .ToList();
-        }
+        Attendance GetAttendance(int gigId, string userId);
+        IEnumerable<Attendance> GetFutureAttendances(string userId);
     }
 }

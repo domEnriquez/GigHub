@@ -13,12 +13,12 @@ namespace GigHub.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext context;
-        private AttendanceRepository attendanceRepository;
+        private AttendanceEfRepository attendanceRepository;
 
         public HomeController()
         {
             context = new ApplicationDbContext();
-            attendanceRepository = new AttendanceRepository(context);
+            attendanceRepository = new AttendanceEfRepository(context);
         }
 
         public ActionResult Index (string query = null)
