@@ -1,36 +1,34 @@
-﻿using GigHub.Dto;
-using GigHub.Models;
+﻿using GigHub.Core;
+using GigHub.Core.Dtos;
+using GigHub.Core.Models;
 using Microsoft.AspNet.Identity;
-using System.Linq;
 using System.Web.Http;
 
 namespace GigHub.Controllers.Api
 {
     public class FollowController : ApiController
     {
-        private ApplicationDbContext context;
+        private readonly UnitOfWork unitOfWork;
 
-        public FollowController()
+        public FollowController(UnitOfWork uow)
         {
-            context = new ApplicationDbContext();
+            unitOfWork = uow;
         }
 
         [HttpPost]
         public IHttpActionResult Follow(FollowDto dto)
         {
-            string userId = User.Identity.GetUserId();
-
-            if (context.Follow.Any(f => f.FolloweeId == dto.FolloweeId && userId == f.FollowerId))
+            if (unitOfWork.Follows.GetFollowing(dto.FolloweeId, User.Identity.GetUserId()) != null)
                 return BadRequest("Following already exists");
 
             var follow = new Follow
             {
                 FolloweeId = dto.FolloweeId,
-                FollowerId = userId
+                FollowerId = User.Identity.GetUserId()
             };
 
-            context.Follow.Add(follow);
-            context.SaveChanges();
+            unitOfWork.Follows.Add(follow);
+            unitOfWork.Complete();
 
             return Ok();
         }
@@ -38,16 +36,13 @@ namespace GigHub.Controllers.Api
         [HttpDelete]
         public IHttpActionResult UnFollow(string id)
         {
-            string userId = User.Identity.GetUserId();
-
-            Follow follow = context.Follow
-                .SingleOrDefault(f => f.FolloweeId == id && f.FollowerId == userId);
+            Follow follow = unitOfWork.Follows.GetFollowing(id, User.Identity.GetUserId());
 
             if (follow == null)
                 return NotFound();
 
-            context.Follow.Remove(follow);
-            context.SaveChanges();
+            unitOfWork.Follows.Remove(follow);
+            unitOfWork.Complete();
 
             return Ok(id);
         }

@@ -1,6 +1,6 @@
-﻿using GigHub.Models;
-using GigHub.Persistence;
-using GigHub.ViewModels;
+﻿using GigHub.Core;
+using GigHub.Core.Models;
+using GigHub.Core.ViewModels;
 using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +12,9 @@ namespace GigHub.Controllers
     {
         private readonly UnitOfWork unitOfWork;
 
-        public GigsController()
+        public GigsController(UnitOfWork uow)
         {
-            unitOfWork = new UnitOfWorkEf(new ApplicationDbContext());
+            unitOfWork = uow;
         }
 
         [Authorize]

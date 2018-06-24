@@ -1,4 +1,5 @@
 ﻿using GigHub;
+using GigHub.Core;
 using GigHub.Persistence;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using Ninject;

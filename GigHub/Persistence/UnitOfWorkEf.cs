@@ -1,5 +1,6 @@
-﻿using GigHub.Models;
-using GigHub.Repositories;
+﻿using GigHub.Core;
+using GigHub.Core.Repositories;
+using GigHub.Persistence.Repositories;
 
 namespace GigHub.Persistence
 {
@@ -11,7 +12,8 @@ namespace GigHub.Persistence
         public AttendanceRepository Attendances { get; private set; }
         public FollowRepository Follows { get; private set; }
         public GenreRepository Genres { get; private set; }
-
+        public NotificationRepository Notifications { get; private set; }
+        public UserNotificationRepository UserNotifications { get; private set; }
 
         public UnitOfWorkEf(ApplicationDbContext context)
         {
