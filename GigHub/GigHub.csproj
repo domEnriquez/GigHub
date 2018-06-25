@@ -250,6 +250,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Persistence\EntityConfigurations\ApplicationUserConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\AttendanceConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\FollowConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\GenreConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\GigConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\NotificationConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\UserNotificationConfiguration.cs" />
     <Compile Include="Persistence\Migrations\201804251349273_InitialModel.cs" />
     <Compile Include="Persistence\Migrations\201804251349273_InitialModel.Designer.cs">
       <DependentUpon>201804251349273_InitialModel.cs</DependentUpon>
@@ -289,6 +296,10 @@
     <Compile Include="Persistence\Migrations\201805200025315_AddNotification.cs" />
     <Compile Include="Persistence\Migrations\201805200025315_AddNotification.Designer.cs">
       <DependentUpon>201805200025315_AddNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Persistence\Migrations\201806252047064_SeparateGigIdForNotificationEntity.cs" />
+    <Compile Include="Persistence\Migrations\201806252047064_SeparateGigIdForNotificationEntity.Designer.cs">
+      <DependentUpon>201806252047064_SeparateGigIdForNotificationEntity.cs</DependentUpon>
     </Compile>
     <Compile Include="Persistence\Migrations\Configuration.cs" />
     <Compile Include="Core\UnitOfWork.cs" />
@@ -452,6 +463,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Persistence\Migrations\201805200025315_AddNotification.resx">
       <DependentUpon>201805200025315_AddNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Persistence\Migrations\201806252047064_SeparateGigIdForNotificationEntity.resx">
+      <DependentUpon>201806252047064_SeparateGigIdForNotificationEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
