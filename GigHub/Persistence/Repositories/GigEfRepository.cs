@@ -9,9 +9,9 @@ namespace GigHub.Persistence.Repositories
 {
     public class GigEfRepository : GigRepository
     {
-        private readonly ApplicationDbContext context;
+        private readonly IApplicationDbContext context;
 
-        public GigEfRepository(ApplicationDbContext context)
+        public GigEfRepository(IApplicationDbContext context)
         {
             this.context = context;
         }
